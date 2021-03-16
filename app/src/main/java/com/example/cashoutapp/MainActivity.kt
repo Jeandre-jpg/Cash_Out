@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         val btn_add = findViewById<Button>(R.id.btn_add)
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val storeName = sharedPref.getString(Constants.STORE_NAME, "Store Name")
         var totalAmount = sharedPref.getInt(Constants.TOTAL_AMOUNT, 0)
 
-        tv_last.text = "Last amount sped at $storeName"
+        tv_last.text = "$storeName"
         tv_amount.text = "$totalAmount"
 
         et_name.text.insert(0, "$storeName")
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             tv_amount.text = sum.toString()
             editor.apply()
             totalAmount = sum
-            
+
             et_amount.text.clear()
             et_name.text.clear()
 
